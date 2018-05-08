@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Matiere:</strong>
+  <%= @devoir.matiere %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @devoir.description %>
+</p>
+
+<p>
+  <strong>Etat:</strong>
+  <%= @devoir.etat %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @devoir.date %>
+</p>
+
+<%= link_to 'Edit', edit_devoir_path(@devoir) %> |
+<%= link_to 'Back', devoirs_path %>

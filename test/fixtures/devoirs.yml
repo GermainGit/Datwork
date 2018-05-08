@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  matiere: one
+  description: MyText
+  etat: 
+  date: 2018-05-06
+
+two:
+  matiere: two
+  description: MyText
+  etat: 
+  date: 2018-05-06

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Datwork</title>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<% if user_signed_in?%>
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+    <div class="titre">DatWork</div>
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+     <div class="navbut">Compte actuel : <%= current_user  %></div>
+    <div class="navbut">
+     <%= link_to new_devoir_path do %>
+    <%= content_tag :div, "Nouveau devoir", :class => "btn btn-success" %>
+    <% end %>
+    </div>
+    <div class="navbut">
+    <%= link_to new_matiere_path do %>
+    <%= content_tag :div, "Nouvelle matiere", :class => "btn btn-primary" %>
+    <% end %>
+    </div>
+    <div class="navbut">
+    <%= link_to destroy_user_session_path, method: :delete do %>
+    <%= content_tag :div, "Déconnexion", :class => "btn btn-outline-danger" %>
+    <% end %>
+    </div>
+
+  </div>
+</div>
+<% end %>
+<div class="yield"><%= yield %></div>
+
+  </body>
+</html>

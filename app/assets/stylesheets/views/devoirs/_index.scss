@@ -1,0 +1,49 @@
+h1{
+  margin-bottom: 20px;
+  color:white;
+  border: none;
+}
+
+ .card-deck .card {
+   min-width: 220px;
+ }
+
+
+ .card {
+   border:none;
+   border-radius:.75rem;
+ }
+
+ .card-body {
+  padding:1.25rem;
+ }
+
+ .card-body p {
+  font-size:14px;
+  font-family:Muli;
+ }
+
+ .card-body h5 {
+  font-family:Muli;
+ }
+
+.body-article p {
+  color: #434f74!important;
+  font-size:17px;
+  font-family:Muli;
+  line-height: 35px;
+}
+
+.body-article span {
+  color: #434f74!important;
+  font-family:Muli;
+}
+
+.body-article li {
+  color: #434f74!important;
+}
+
+.body-article img {
+ margin: 10px;
+ max-width: 100%;
+}

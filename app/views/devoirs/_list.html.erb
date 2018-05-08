@@ -1,0 +1,15 @@
+<div class="card-columns">
+  <% @devoirs.each do |devoir| %>
+    <%= link_to devoir do %>
+      <div class="card card-path">
+        <div class="card-body">
+          <h5 class="card-title"><%= devoir.matiere %></h5>
+          <p class="card-text"><%= devoir.description %></p>
+        </div>
+        <%= link_to devoir do %>
+          <p class="lecture category">Lire ⇾</p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
