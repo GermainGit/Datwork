@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :etat %>
-    <%= form.text_field :etat, id: :devoir_etat %>
+    <%= form.label :etat_id %>
+    <%= form.collection_select :etat_id, Etat.all, :id, :nom %>
   </div>
 
   <div class="field">

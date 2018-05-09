@@ -25,7 +25,7 @@ class DevoirsController < ApplicationController
   # POST /devoirs.json
   def create
     @devoir = Devoir.new(devoir_params)
-
+    @devoir.user_id = current_user.id
     respond_to do |format|
       if @devoir.save
         format.html { redirect_to @devoir}

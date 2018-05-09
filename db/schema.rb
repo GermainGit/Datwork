@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507122525) do
+ActiveRecord::Schema.define(version: 20180509104827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,17 +23,24 @@ ActiveRecord::Schema.define(version: 20180507122525) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "etat_id"
+    t.index ["etat_id"], name: "index_devoirs_on_etat_id"
     t.index ["matiere_id"], name: "index_devoirs_on_matiere_id"
     t.index ["user_id"], name: "index_devoirs_on_user_id"
   end
 
+  create_table "etats", force: :cascade do |t|
+    t.string "nom"
+  end
+
   create_table "matieres", force: :cascade do |t|
     t.string "nom"
-    t.string "col_from"
-    t.string "col_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "devoir_id"
+    t.string "color"
+    t.index ["devoir_id"], name: "index_matieres_on_devoir_id"
     t.index ["user_id"], name: "index_matieres_on_user_id"
   end
 
@@ -57,7 +64,9 @@ ActiveRecord::Schema.define(version: 20180507122525) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "devoirs", "etats"
   add_foreign_key "devoirs", "matieres"
   add_foreign_key "devoirs", "users"
+  add_foreign_key "matieres", "devoirs"
   add_foreign_key "matieres", "users"
 end

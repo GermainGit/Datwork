@@ -25,6 +25,7 @@ class MatieresController < ApplicationController
   # POST /matieres.json
   def create
     @matiere = Matiere.new(matiere_params)
+    @matiere.user_id = current_user.id
     respond_to do |format|
       if @matiere.save
         format.html { redirect_to @matiere}
@@ -68,6 +69,6 @@ class MatieresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def matiere_params
-      params.require(:matiere).permit(:nom, :col_from, :col_to)
+      params.require(:matiere).permit(:nom, :color)
     end
 end
