@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509104827) do
+ActiveRecord::Schema.define(version: 20180515141654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "colors", force: :cascade do |t|
+    t.string "nom"
+  end
 
   create_table "devoirs", force: :cascade do |t|
     t.bigint "matiere_id"
@@ -39,7 +43,8 @@ ActiveRecord::Schema.define(version: 20180509104827) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "devoir_id"
-    t.string "color"
+    t.bigint "color_id"
+    t.index ["color_id"], name: "index_matieres_on_color_id"
     t.index ["devoir_id"], name: "index_matieres_on_devoir_id"
     t.index ["user_id"], name: "index_matieres_on_user_id"
   end
@@ -67,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180509104827) do
   add_foreign_key "devoirs", "etats"
   add_foreign_key "devoirs", "matieres"
   add_foreign_key "devoirs", "users"
+  add_foreign_key "matieres", "colors"
   add_foreign_key "matieres", "devoirs"
   add_foreign_key "matieres", "users"
 end

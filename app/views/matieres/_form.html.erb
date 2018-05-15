@@ -18,7 +18,7 @@
 
   <div class="field">
     <p>Couleur :</p>
-    <%= form.text_field :color, id: :matiere_color %>
+    <%= form.collection_select :color_id, Color.all, :id, :nom%>
   </div>
 
   <div class="actions">

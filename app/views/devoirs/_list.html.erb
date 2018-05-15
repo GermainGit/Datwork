@@ -1,5 +1,6 @@
 <div class="card-columns">
   <% @devoirs.each do |devoir| %>
+    <% if devoir.etat_id == 1%>
     <%= link_to devoir do %>
       <div class="card card-path">
         <div class="card-body">

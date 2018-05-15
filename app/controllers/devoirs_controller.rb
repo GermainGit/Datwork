@@ -10,6 +10,7 @@ class DevoirsController < ApplicationController
   # GET /devoirs/1
   # GET /devoirs/1.json
   def show
+
   end
 
   # GET /devoirs/new
@@ -69,6 +70,6 @@ class DevoirsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def devoir_params
-      params.require(:devoir).permit(:matiere_id, :description, :etat, :date)
+      params.require(:devoir).permit(:matiere_id, :description, :etat_id, :date)
     end
 end

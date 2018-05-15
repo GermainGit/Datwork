@@ -12,13 +12,18 @@
 
 <p>
   <strong>Etat:</strong>
-  <%= @devoir.etat %>
+  <%= @devoir.etat.nom %>
 </p>
 
 <p>
   <strong>Date:</strong>
   <%= @devoir.date %>
 </p>
+<div class="choice">
+  <div class="btn btn-info"><%= link_to 'Edit', edit_devoir_path(@devoir) %></div>
+<div class="btn btn-danger"><%= link_to 'Destroy', @devoir, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+<div class="btn btn-warning"><%= link_to 'Back', devoirs_path %> </div>
 
-<%= link_to 'Edit', edit_devoir_path(@devoir) %> |
-<%= link_to 'Back', devoirs_path %>
+</div>
+
+

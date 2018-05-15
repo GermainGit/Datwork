@@ -1,16 +1,66 @@
-;
-<h1>Mes devoirs :</h1>
+   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 topbar">
+      <%= link_to root_path do %>
+        <%= content_tag :div, "", class: "mr-md-auto logo" %>
+      <% end %>
+      <nav class="my-2 my-md-0">
+        <% Matiere.all.each do |matiere| %>
+          <%= link_to matiere,
+                      matiere,
+                      class: 'btn btn-outline-primary top-btt category',
+                      style: "background-color:#{matiere.color.nom} transition: 0.3s; color:white;" %>
+        <% end %>
+      </nav>
+    </div>
+<h2>Mes devoirs :</h2>
 
 <div class="tabledev">
   <div class="afaire">
-
+    <h3>A faire :</h3>
+  <% @devoirs.each do |devoir| %>
+    <% if devoir.etat_id == 1%>
+    <%= link_to devoir do %>
+      <div class="card-head" style="background-color:<%=devoir.matiere.color%>; color:white;">
+      <h5 class="card-title"><%= devoir.matiere %></h5></div>
+      <div class="card card-path">
+        <div class="card-body" >
+          <p class="card-text"><%= devoir.description %></p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>
 <div class="encours">
+  <h3>En cours :</h3>
+    <% @devoirs.each do |devoir| %>
+    <% if devoir.etat_id == 2%>
+    <%= link_to devoir do %>
+      <div class="card card-path">
+        <div class="card-body">
+          <h5 class="card-title"><%= devoir.matiere %></h5>
+          <p class="card-text"><%= devoir.description %></p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
 
 </div>
 <div class="fait">
+  <h3>Fait :</h3>
+      <% @devoirs.each do |devoir| %>
+    <% if devoir.etat_id == 3%>
+    <%= link_to devoir do %>
+      <div class="card card-path">
+        <div class="card-body">
+          <h5 class="card-title"><%= devoir.matiere %></h5>
+          <p class="card-text"><%= devoir.description %></p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
 
 </div>
 </div>
-
-<%= render 'list'%>

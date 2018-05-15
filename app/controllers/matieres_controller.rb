@@ -5,11 +5,13 @@ class MatieresController < ApplicationController
   # GET /matieres.json
   def index
     @matieres = Matiere.all
+    @colors = Color.all
   end
 
   # GET /matieres/1
   # GET /matieres/1.json
   def show
+    @devoirs = @matiere.devoirs
   end
 
   # GET /matieres/new
@@ -69,6 +71,6 @@ class MatieresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def matiere_params
-      params.require(:matiere).permit(:nom, :color)
+      params.require(:matiere).permit(:nom, :color_id)
     end
 end
