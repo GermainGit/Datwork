@@ -1,28 +1,15 @@
-<p id="notice"><%= notice %></p>
+<% unless user_signed_in? %><%= render 'delog' %><% end %>
+<% if user_signed_in?%>
+<% unless @matieres.first %>
+Tu n'as pas de matiere
+<% end %>
 
-<h1>Matieres</h1>
+<% if @matieres.first %>
+Tasune de matiere
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th colspan="2">Couleur :</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @matieres.each do |matiere| %>
-      <tr>
-        <td><%= matiere.nom %></td>
-        <td><%= matiere.color.nom%></td>
-        <td><%= link_to 'Show', matiere %></td>
-        <td><%= link_to 'Edit', edit_matiere_path(matiere) %></td>
-        <td><%= link_to 'Destroy', matiere, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Matiere', new_matiere_path %>
+<% end %>
+

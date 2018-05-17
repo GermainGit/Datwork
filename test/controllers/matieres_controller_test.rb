@@ -1,48 +1,39 @@
 require 'test_helper'
 
 class MatieresControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @matiere = matieres(:one)
-  end
-
   test "should get index" do
-    get matieres_url
+    get matieres_index_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_matiere_url
+    get matieres_new_url
     assert_response :success
   end
 
-  test "should create matiere" do
-    assert_difference('Matiere.count') do
-      post matieres_url, params: { matiere: { col_from: @matiere.col_from, col_to: @matiere.col_to, nom: @matiere.nom } }
-    end
-
-    assert_redirected_to matiere_url(Matiere.last)
+  test "should get create" do
+    get matieres_create_url
+    assert_response :success
   end
 
-  test "should show matiere" do
-    get matiere_url(@matiere)
+  test "should get show" do
+    get matieres_show_url
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_matiere_url(@matiere)
+    get matieres_edit_url
     assert_response :success
   end
 
-  test "should update matiere" do
-    patch matiere_url(@matiere), params: { matiere: { col_from: @matiere.col_from, col_to: @matiere.col_to, nom: @matiere.nom } }
-    assert_redirected_to matiere_url(@matiere)
+  test "should get destroy" do
+    get matieres_destroy_url
+    assert_response :success
   end
 
-  test "should destroy matiere" do
-    assert_difference('Matiere.count', -1) do
-      delete matiere_url(@matiere)
-    end
-
-    assert_redirected_to matieres_url
+  test "should get update" do
+    get matieres_update_url
+    assert_response :success
   end
+
 end

@@ -1,5 +1,9 @@
-<h1>New Matiere</h1>
+<div class="container mt-4 shadow p-3 mb-5 bg-white rounded">
+  <h1>Nouvelle matiere</h1>
+  <%= simple_form_for @matiere do |f| %>
+  <%= f.input :name %>
+  <%= f.input :color, collection: ["Blue", "Green", "Red"]%>
+  <%= f.button :submit %>
+<% end %>
+</div>
 
-<%= render 'form', matiere: @matiere %>
-
-<%= link_to 'Back', matieres_path %>

@@ -10,49 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515141654) do
+ActiveRecord::Schema.define(version: 20180517135959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "colors", force: :cascade do |t|
-    t.string "nom"
-  end
-
   create_table "devoirs", force: :cascade do |t|
     t.bigint "matiere_id"
-    t.text "description"
-    t.boolean "etat"
-    t.date "date"
+    t.text "content"
+    t.string "etat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "etat_id"
-    t.index ["etat_id"], name: "index_devoirs_on_etat_id"
     t.index ["matiere_id"], name: "index_devoirs_on_matiere_id"
-    t.index ["user_id"], name: "index_devoirs_on_user_id"
-  end
-
-  create_table "etats", force: :cascade do |t|
-    t.string "nom"
   end
 
   create_table "matieres", force: :cascade do |t|
-    t.string "nom"
+    t.string "name"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "devoirs_id"
     t.bigint "user_id"
-    t.bigint "devoir_id"
-    t.bigint "color_id"
-    t.index ["color_id"], name: "index_matieres_on_color_id"
-    t.index ["devoir_id"], name: "index_matieres_on_devoir_id"
+    t.index ["devoirs_id"], name: "index_matieres_on_devoirs_id"
     t.index ["user_id"], name: "index_matieres_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "prenom"
-    t.string "nom"
-    t.string "mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -65,14 +48,17 @@ ActiveRecord::Schema.define(version: 20180515141654) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.bigint "matieres_id"
+    t.bigint "devoirs_id"
+    t.index ["devoirs_id"], name: "index_users_on_devoirs_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["matieres_id"], name: "index_users_on_matieres_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "devoirs", "etats"
   add_foreign_key "devoirs", "matieres"
-  add_foreign_key "devoirs", "users"
-  add_foreign_key "matieres", "colors"
-  add_foreign_key "matieres", "devoirs"
+  add_foreign_key "matieres", "devoirs", column: "devoirs_id"
   add_foreign_key "matieres", "users"
+  add_foreign_key "users", "devoirs", column: "devoirs_id"
+  add_foreign_key "users", "matieres", column: "matieres_id"
 end

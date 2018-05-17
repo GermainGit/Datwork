@@ -1,15 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nom:</strong>
-  <%= @matiere.nom %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @matiere.color.nom %>
-</p>
-
-
-<%= link_to 'Edit', edit_matiere_path(@matiere) %> |
-<%= link_to 'Back', matieres_path %>
+<h2>Nom de la matiere :</h2>
+<br/>
+<%= @matiere.name %>
+<br/>
+<h2>Couleur :</h2>
+<div class="color-case" style="width: 20px; height: 20px; background-color: <%=@matiere.color%>"></div>

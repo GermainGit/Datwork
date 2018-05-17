@@ -1,7 +1,5 @@
 class Matiere < ApplicationRecord
   has_many :devoirs
-  belongs_to :color
-    def to_s
-    "#{nom}"
-  end
+  validates :name, :color, presence: true
+  validates :name, uniqueness: true
 end

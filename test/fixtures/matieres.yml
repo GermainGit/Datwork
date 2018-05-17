@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nom: MyString
-  col_from: MyString
-  col_to: MyString
+  name: MyString
+  color: MyString
+  devoir: one
 
 two:
-  nom: MyString
-  col_from: MyString
-  col_to: MyString
+  name: MyString
+  color: MyString
+  devoir: two

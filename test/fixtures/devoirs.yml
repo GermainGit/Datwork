@@ -2,12 +2,10 @@
 
 one:
   matiere: one
-  description: MyText
-  etat: 
-  date: 2018-05-06
+  content: MyText
+  etat: MyString
 
 two:
   matiere: two
-  description: MyText
-  etat: 
-  date: 2018-05-06
+  content: MyText
+  etat: MyString

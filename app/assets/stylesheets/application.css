@@ -13,14 +13,3 @@
  *= require_tree .
  *= require_self
  */
-@import url('https://fonts.googleapis.com/css?family=Oxygen');
-@import "component/navbar", "devise/session", "views/devoirs/index","views/devoirs/show", "views/layout/layout";
- body{
-  margin: 0px;
-  background-color: #2B3351;
- }
- a:hover{
-  text-decoration:none;
-  background:none;
-  color:black;
-}
