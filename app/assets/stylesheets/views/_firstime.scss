@@ -1,0 +1,26 @@
+html{
+  height:99%;
+}
+body{
+  height:99%;
+  margin: 0;
+  padding:0;
+}
+.full{
+  width: 100%;
+  height: 90%;
+}
+.logadd{
+  transition-duration:0.3s;
+  height:60px;
+  width:60px;
+  background-image: url(asset-path("add.png"));
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.logadd:hover{
+  transition-duration:0.3s;
+  height:80px;
+  width:80px;
+}

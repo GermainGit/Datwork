@@ -1,15 +1,24 @@
 <% unless user_signed_in? %><%= render 'delog' %><% end %>
 <% if user_signed_in?%>
-<% unless @matieres.first %>
-Tu n'as pas de matiere
-<% end %>
-
+<% Matiere.all.each do |matiere| %><% unless matiere.user_id == current_user.id%><%= render 'firstime'%><% end %><%end%>
 <% if @matieres.first %>
-Tasune de matiere
+  <div class="container text-center mt-4">
+    <h2>Tes matières :</h2>
+      <div class="mt-4 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 topbar shadow-lg">
+
+        <% Matiere.all.each do |matiere| %>
+        <% if matiere.user_id == current_user.id%>
+          <%= link_to matiere,
+                      matiere,
+                      class: 'matie mr-3 mt-3 shadow-lg p-3 mb-3 rounded text-center',
+                      style: "background-color:#{matiere.color};"
+                      %>
+        <% end %>
+        <%end%>
+      <a class="logadd" href="/matieres/new"> </a>
+  </div>
+
+
 <% end %>
-
-
-
-
 <% end %>
 
