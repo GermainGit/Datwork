@@ -1,24 +1,32 @@
-<% unless user_signed_in? %><%= render 'delog' %><% end %>
-<% if user_signed_in?%>
-<% Matiere.all.each do |matiere| %><% unless matiere.user_id == current_user.id%><%= render 'firstime'%><% end %><%end%>
-<% if @matieres.first %>
-  <div class="container text-center mt-4">
-    <h2>Tes matières :</h2>
-      <div class="mt-4 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 topbar shadow-lg">
+<%= render 'delog' unless user_signed_in? %>
+<%if user_signed_in?%>
+  <%if @matieres.empty?%>
+  <%= render 'firstime' %>
+  <% else %>
 
-        <% Matiere.all.each do |matiere| %>
-        <% if matiere.user_id == current_user.id%>
-          <%= link_to matiere,
-                      matiere,
-                      class: 'matie mr-3 mt-3 shadow-lg p-3 mb-3 rounded text-center',
-                      style: "background-color:#{matiere.color};"
-                      %>
+
+    <div class="container text-center mt-4">
+      <h2>Tes matières :</h2>
+        <div class="mt-4 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 topbar shadow-lg">
+
+        <% @matieres.each do |matiere| %>
+          <%= link_to matiere do %>
+            <!-- class: 'matie mr-3 mt-3 shadow-lg p-3 mb-3 rounded text-center',
+                        style: "background-color:#{matiere.color};" -->
+            <div class="parent matie mr-3 mt-3 my-bg shadow-lg p-3 mb-3 rounded text-center">
+              coco
+              <div class="child">
+                4
+              </div>
+            </div>
+          <% end %>
         <% end %>
-        <%end%>
-      <a class="logadd" href="/matieres/new"> </a>
+        <a class="logadd" href="/matieres/new"> </a>
+    </div>
   </div>
 
 
-<% end %>
+
+  <% end %>
 <% end %>
 

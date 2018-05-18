@@ -48,17 +48,11 @@ ActiveRecord::Schema.define(version: 20180517135959) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.bigint "matieres_id"
-    t.bigint "devoirs_id"
-    t.index ["devoirs_id"], name: "index_users_on_devoirs_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["matieres_id"], name: "index_users_on_matieres_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "devoirs", "matieres"
   add_foreign_key "matieres", "devoirs", column: "devoirs_id"
   add_foreign_key "matieres", "users"
-  add_foreign_key "users", "devoirs", column: "devoirs_id"
-  add_foreign_key "users", "matieres", column: "matieres_id"
 end

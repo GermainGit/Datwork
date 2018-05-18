@@ -4,3 +4,6 @@
 <br/>
 <h2>Couleur :</h2>
 <div class="color-case" style="width: 20px; height: 20px; background-color: <%=@matiere.color%>"></div>
+
+<%= link_to "Retour", matieres_path %>
+<%= link_to "Supprimer", matiere_path(@matiere.id), method: :delete %>

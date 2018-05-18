@@ -1,6 +1,6 @@
 class MatieresController < ApplicationController
   def index
-    @matieres = Matiere.all
+    @matieres = current_user.matieres if current_user
   end
 
   def new
@@ -16,13 +16,16 @@ class MatieresController < ApplicationController
   end
 
   def show
-    @matiere = Matiere.find(params[:id])
+    @matiere = current_user.matieres.find(params[:id])
   end
 
   def edit
   end
 
   def destroy
+    @matiere = Matiere.find(params[:id])
+    @matiere.destroy
+    redirect_to matieres_path
   end
 
   def update
