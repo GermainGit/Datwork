@@ -17,6 +17,7 @@ class MatieresController < ApplicationController
 
   def show
     @matiere = current_user.matieres.find(params[:id])
+    @devoirs = @matiere.devoirs
   end
 
   def edit
