@@ -1,2 +1,13 @@
-<h1>Devoirs#new</h1>
-<p>Find me in app/views/devoirs/new.html.erb</p>
+<div class="container mt-4 shadow p-3 mb-5 bg-white rounded">
+  <h1>Nouveau devoir</h1>
+  <%= simple_form_for @devoir do |f| %>
+  <%= f.input :title, label: "Nom du devoir :", required: true %>
+  <%= f.label "Matière :" %><br/>
+  <%= f.collection_select :matiere_id, Matiere.all, :id, :name %>
+  <p></p>
+  <%= f.input :content, label: "Description" %>
+  <%= f.input :date, order: [:month, :day], label: "Date de rendu" %>
+  <%= f.button :submit,  "Ajouter le devoir", class: "btn btn-primary" %>
+<% end %>
+</div>
+

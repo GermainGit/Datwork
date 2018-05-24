@@ -7,22 +7,23 @@
 
     <div class="container text-center mt-4">
       <h2>Tes matières :</h2>
-        <div class="mt-4 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 topbar shadow-lg">
+        <div class="le-bg mt-4 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 topbar shadow-lg">
 
         <% @matieres.each do |matiere| %>
-          <%= link_to matiere do %>
-            <!-- class: 'matie mr-3 mt-3 shadow-lg p-3 mb-3 rounded text-center',
-                        style: "background-color:#{matiere.color};" -->
-            <div class="parent matie mr-3 mt-3 my-bg shadow-lg p-3 mb-3 rounded text-center">
-              coco
-              <div class="child">
-                4
+          <%= link_to  matiere do %>
+            <div class="parent-card matie mr-3 mt-3 shadow-lg p-3 mb-3 rounded text-center" style="background-color:<%= matiere.color %>">
+              <%= matiere %>
+              <div class="notif-card">
+                <%= @matieres.count %>
               </div>
             </div>
           <% end %>
         <% end %>
-        <a class="logadd" href="/matieres/new"> </a>
+        <%= link_to "",new_matiere_path, class:"logadd" %>
     </div>
+    <% if @matieres.any? %>
+      <%= link_to "Ajouter des devoirs", new_devoir_path, class:"btn btn-primary p-2 mt-2" %>
+    <% end %>
   </div>
 
 
