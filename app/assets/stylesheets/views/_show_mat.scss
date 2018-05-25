@@ -8,23 +8,65 @@
 }
 
 .afaire{
+
+  color:white;
   padding: 10px;
   width:100%;
-  border: solid 1px white;
-  border-radius:15px;
+  height:350px;
+  border-radius:5px;
   margin-right: 10px;
+  background-image: url(asset-path('blackboard.jpg'));
+  background-size:cover;
+  border: 10px solid #442d08;
+  border-left: 10px solid #63471a;
+  border-right: 10px solid #63471a;
+  box-shadow: inset 1px 2px 10px black;
+  margin-right:80px;
+  font-size:40px;
 }
 
 .encours{
+  color:white;
+  background-size:cover;
+  background-image: url(asset-path('blackboard.jpg'));
   padding: 10px;
   width:100%;
   border: solid 1px white;
-  border-radius:15px;
+  border-radius:5px;
   margin-right: 10px;
+  border: 10px solid #442d08;
+  border-left: 10px solid #63471a;
+  border-right: 10px solid #63471a;
+  box-shadow: inset 1px 2px 10px black;
+  margin-right:80px;
+  font-size:40px;
 }
 .fait{
+  color:white;
+  background-size:cover;
+  background-image: url(asset-path('blackboard.jpg'));
   padding: 10px;
   width:100%;
   border: solid 1px white;
-  border-radius:15px;
+  border-radius:5px;
+  border: 10px solid #442d08;
+  border-left: 10px solid #63471a;
+  border-right: 10px solid #63471a;
+  box-shadow: inset 1px 2px 10px black;
+  font-size:40px;
+}
+.conteneur{
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.title{
+  font-family: 'The Girl Next Door', cursive;
+  border-bottom: solid 1px white;
+  margin-left:120px;
+  margin-right:120px;
+}
+.upper{
+  font-size:60px;
+  text-transform: uppercase;
+  font-family: 'Gloria Hallelujah', cursive;
 }

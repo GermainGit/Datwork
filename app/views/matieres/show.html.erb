@@ -1,9 +1,12 @@
-<div class="container">
-  <h2><%= @matiere.name %></h2>
-
+<div class="container d-flex justify-content-center mt-4 mb-4 upper">
+  <p><%= @matiere.name %></p>
+</div>
+<div class="conteneur">
   <div class="tabledev">
     <div class="afaire">
-      <h3>A faire :</h3>
+      <div class="title">
+        <p>A faire :</p>
+      </div>
     <% @devoirs.each do |devoir| %>
       <% if devoir.etat == "A faire"%>
       <%= link_to devoir do %>
@@ -19,7 +22,9 @@
     <% end %>
   </div>
   <div class="encours">
-    <h3>En cours :</h3>
+    <div class="title">
+    <p>En cours :</p>
+    </div>
       <% @devoirs.each do |devoir| %>
       <% if devoir.etat == "En cours"%>
       <%= link_to devoir do %>
@@ -35,7 +40,9 @@
 
   </div>
   <div class="fait">
-    <h3>Fait :</h3>
+    <div class="title">
+      <p>Fait :</p>
+    </div>
         <% @devoirs.each do |devoir| %>
       <% if devoir.etat == "Fait"%>
       <%= link_to devoir do %>
@@ -53,7 +60,7 @@
   </div>
 
   </div>
-  <div class="container text-center">
+  <div class="container text-center mt-5">
     <%= link_to "Retour", matieres_path, class:"btn btn-defaut" %>
     <%= link_to "Supprimer", matiere_path(@matiere.id), method: :delete, class:"btn btn-danger" %>
   </div>

@@ -8,14 +8,16 @@
     <div class="container text-center mt-4">
       <h2>Tes matières :</h2>
         <div class="le-bg mt-4 d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 topbar shadow-lg">
-
         <% @matieres.each do |matiere| %>
           <%= link_to  matiere do %>
-            <div class="parent-card matie mr-3 mt-3 shadow-lg p-3 mb-3 rounded text-center" style="background-color:<%= matiere.color %>">
-              <%= matiere %>
-              <div class="notif-card">
-                <%= @matieres.count %>
-              </div>
+            <div class="cardpart align-items-center">
+              <ul>
+                <li>
+                    <h2><%= matiere %></h2>
+                    <p>Tu as </p> <div class="font"> <b> <%= @matieres.count %> </b> </div><p>  devoirs à rendre !</p>
+                  </a>
+                </li>
+              </ul>
             </div>
           <% end %>
         <% end %>
