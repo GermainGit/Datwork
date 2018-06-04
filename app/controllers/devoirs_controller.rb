@@ -8,14 +8,13 @@ class DevoirsController < ApplicationController
   end
 
   def create
-    @devoir = devoir.new(devoir_params)
-    @devoir.user_id = current_user.id
+    @devoir = Devoir.new(devoir_params)
     @devoir.save
     redirect_to new_user_session_path
   end
 
   def show
-    @devoir = current_user.matieres.devoirs.find(params[:id])
+    @devoir = Devoir.find(params[:id])
 
   end
 
@@ -23,12 +22,13 @@ class DevoirsController < ApplicationController
   end
 
   def destroy
-    @devoir = devoir.find(params[:id])
+    @devoir = Devoir.find(params[:id])
     @devoir.destroy
-    redirect_to matiere_path(params[:id])
+    redirect_to matieres_path
   end
 
   def update
+    @devoir = Devoir.update()
   end
 
     private
@@ -37,7 +37,7 @@ class DevoirsController < ApplicationController
     end
 
     def devoir_params
-      params.require(:devoir).permit(:title, :content, :etat, :date, :devoir_id)
+      params.require(:devoir).permit(:title, :content, :etat, :date, :matiere_id)
     end
 
 end

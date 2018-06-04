@@ -3,7 +3,8 @@
   <%= simple_form_for @devoir do |f| %>
   <%= f.input :title, label: "Nom du devoir :", required: true %>
   <%= f.label "Matière :" %><br/>
-  <%= f.collection_select :matiere_id, Matiere.all, :id, :name %>
+  <%= f.collection_select :matiere_id, Matiere.all, :id, :name %> <br/>
+  <%= f.input :etat, label: "Etat", collection: ["A faire", "En cours", "Fait"], required: true %>
   <p></p>
   <%= f.input :content, label: "Description" %>
   <%= f.input :date, order: [:month, :day], label: "Date de rendu" %>

@@ -1,2 +1,18 @@
-<h1>Devoirs#show</h1>
-<p>Find me in app/views/devoirs/show.html.erb</p>
+<div class="container text-center mt-3 d-flex flex-column align-items-center">
+  <h1><%= @devoir.title %></h1>
+  <p>A rendre pour le : <%= @devoir.date %></p>
+  <h2>A faire :</h2>
+  <p><%= @devoir.content %></p>
+  <br>
+  <div class="etat mt-3">
+      <%= simple_form_for @devoir do |f| %>
+        <%= f.input :etat, label: "Changer l'etat", collection: ["A faire", "En cours", "Fait"]%>
+        <%= f.button :submit,  "Changer l'etat", class: "btn btn-primary" %>
+        <div class="mt-3">
+          <%= link_to "Retour", matieres_path, class:"btn btn-defaut" %>
+          <%= link_to "Supprimer le devoir", devoir_path, method: :delete, class:"btn btn-danger" %>
+        </div>
+      <% end %>
+  </div>
+</div>
+

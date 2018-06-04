@@ -2,7 +2,7 @@
   <h1>Nouvelle matiere</h1>
   <%= simple_form_for @matiere do |f| %>
   <%= f.input :name %>
-  <%= f.input :color, collection: ["Blue", "Green", "Red"]%>
+  <%= f.input :color, collection: ["Blue", "Green", "Red", "Black", "Purple", "Brown"]%>
   <%= f.button :submit %>
 <% end %>
 </div>

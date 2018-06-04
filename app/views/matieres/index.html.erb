@@ -13,8 +13,8 @@
             <div class="cardpart align-items-center">
               <ul>
                 <li>
-                    <h2><%= matiere %></h2>
-                    <p>Tu as </p> <div class="font"> <b> <%= @matieres.count %> </b> </div><p>  devoirs à rendre !</p>
+                    <h2 style="color: <%= matiere.color %> "><%= matiere %></h2>
+                    <p> Tu as <b> <%= matiere.devoirs.count %> </b> </p><p>  devoirs à rendre !</p>
                   </a>
                 </li>
               </ul>

@@ -10,13 +10,8 @@
     <% @devoirs.each do |devoir| %>
       <% if devoir.etat == "A faire"%>
       <%= link_to devoir do %>
-        <div class="card-head" style="background-color:<%=devoir.matiere.color%>; color:white;">
-        <h5 class="card-title"><%= devoir.matiere %></h5></div>
-        <div class="card card-path">
-          <div class="card-body" >
-            <p class="card-text"><%= devoir.description %></p>
-          </div>
-        </div>
+        <div class="card-head">
+        <h5 class="devoir-title"> ܍  <%= devoir.title %></h5></div>
         <% end %>
       <% end %>
     <% end %>
@@ -28,12 +23,9 @@
       <% @devoirs.each do |devoir| %>
       <% if devoir.etat == "En cours"%>
       <%= link_to devoir do %>
-        <div class="card card-path">
-          <div class="card-body">
-            <h5 class="card-title"><%= devoir.matiere %></h5>
-            <p class="card-text"><%= devoir.description %></p>
+        <div class="card-head">
+            <h5 class="devoir-title">܍  <%= devoir.title %></h5>
           </div>
-        </div>
         <% end %>
       <% end %>
     <% end %>
@@ -46,11 +38,10 @@
         <% @devoirs.each do |devoir| %>
       <% if devoir.etat == "Fait"%>
       <%= link_to devoir do %>
-        <div class="card card-path">
-          <div class="card-body">
-            <h5 class="card-title"><%= devoir.matiere %></h5>
-            <p class="card-text"><%= devoir.description %></p>
+          <div class="card-head">
+            <h5 class="devoir-title">܍  <%= devoir.title %></h5>
           </div>
+        </div>
         </div>
         <% end %>
       <% end %>
@@ -64,3 +55,4 @@
     <%= link_to "Retour", matieres_path, class:"btn btn-defaut" %>
     <%= link_to "Supprimer", matiere_path(@matiere.id), method: :delete, class:"btn btn-danger" %>
   </div>
+
